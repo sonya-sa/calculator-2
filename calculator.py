@@ -9,36 +9,38 @@ from arithmetic import *
 # Your code goes here
 
 while True:
+
     user_input = raw_input("> ")
     token_input = user_input.split(" ")
+    token_func = token_input.pop(0)
 
-    if token_input[0] == "q":
+    if token_func == "q":
         quit()
 
-    try:
-        token_input[1] = float(token_input[1])
-        if len(token_input) == 3:
-            token_input[2] = float(token_input[2])
-    except:
-        continue
+    digit_input = []
+    for i in token_input:
+        if i.isdigit():
+            digit_input.append(float(i))
+        else:
+            continue
 
-    if token_input[0] == "+":
-        user_output = add(token_input[1], token_input[2])
-    elif token_input[0] == "-":
-        user_output = subtract(token_input[1], token_input[2])
-    elif token_input[0] == "*":
-        user_output = multiply(token_input[1], token_input[2])
-    elif token_input[0] == "/":
-        user_output = divide(token_input[1], token_input[2])
-    elif token_input[0] == "square":
-        user_output = square(token_input[1])
-    elif token_input[0] == "cube":
-        user_output = cube(token_input[1])
-    elif token_input[0] == "pow":
-        user_output = power(token_input[1], token_input[2])
-    elif token_input[0] == "mod":
-        user_output = mod(token_input[1], token_input[2])
+    if token_func == "+":
+        user_output = add(digit_input)
+    elif token_func == "-":
+        user_output = subtract(digit_input)
+    elif token_func == "*":
+        user_output = multiply(digit_input)
+    elif token_func == "/":
+        user_output = divide(digit_input)
+    elif token_func == "square":
+        user_output = square(digit_input[0])
+    elif token_func == "cube":
+        user_output = cube(digit_input[0])
+    elif token_func == "power":
+        user_output = power(digit_input)
+    elif token_func == "mod":
+        user_output = mod(digit_input[0:1])
     else:
-        pass
+        continue
 
     print user_output

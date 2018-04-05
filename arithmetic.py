@@ -1,53 +1,49 @@
 """Math functions for calculator."""
 
 
-def add(num1, num2):
-    """Return the sum of the two inputs."""
+def add(nums):
+    """Return the sum of all inputs."""
 
-    return num1 + num2
+    return reduce(lambda x, y: x + y, nums)
 
 
-def subtract(num1, num2):
+def subtract(nums):
     """Return the second number subtracted from the first."""
 
-    return num1 - num2
+    return reduce(lambda x, y: x - y, nums)
 
 
-def multiply(num1, num2):
-    """Multiply the two inputs together."""
+def multiply(nums):
+    """Multiply all inputs together."""
 
-    return num1 * num2
-
-
-def divide(num1, num2):
-    """Divide the first input by the second and return the result."""
-
-    return float(num1) / num2
+    return reduce(lambda x, y: x * y, nums)
 
 
-def square(num1):
-    """Return the square of the input."""
+def divide(nums):
+    """Return the quotient of all inputs."""
 
-    # Needs only one argument
-
-    return num1 * num1
+    return reduce(lambda x, y: x / y, nums)
 
 
-def cube(num1):
-    """Return the cube of the input."""
+def square(num):
+    """Return the square of all inputs."""
 
-    # Needs only one argument
-
-    return num1 * num1 * num1
+    return num ** 2
 
 
-def power(num1, num2):
+def cube(num):
+    """Return the cube of all inputs."""
+
+    return num ** 3
+
+
+def power(nums):
     """Raise num1 to the power of num and return the value."""
 
-    return num1 ** num2  # ** = exponent operator
+    return reduce(lambda x, y: x ** y, nums)
 
 
-def mod(num1, num2):
-    """Return the remainder of num / num2."""
+def mod(nums):
+    """Return the remainder of the quotient of all inputs."""
 
-    return num1 % num2
+    return reduce(lambda x, y: x % y, nums)
